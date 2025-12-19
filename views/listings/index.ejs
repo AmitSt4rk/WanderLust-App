@@ -1,0 +1,35 @@
+<% layout("/layouts/boilerplate") %>
+
+    <body>
+        <h3>All Listings...</h3>
+        <div class="listings-container">
+            <% for (const listing of allListings) { %>
+                <a class="show-link" href="/listings/<%= listing._id %>">
+                    <div class="card" style="width: 16rem;">
+                        <img src="<%= listing.image %>" class="card-img-top" alt="Listing Image!"
+                            style="height: 16rem;">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small>Last updated 3 mins ago</small></p>
+                        </div>
+                        <div class="card-body">
+                            <b>
+                                <h5 class="card-title">
+                                    <%= listing.title %>
+                                </h5>
+                            </b>
+                            <p class="card-text">
+                                <span>
+                                    &#8377; <%= Number(listing.price || 0).toLocaleString("en-IN") %>
+                                </span>
+                                / night
+                            </p>
+                        </div>
+                    </div>
+                </a>
+
+                <% } %>
+        </div>
+    </body>
