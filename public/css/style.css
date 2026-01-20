@@ -25,13 +25,13 @@
     color: #222 !important;
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-.container{
+.container {
     flex: 1;
 }
 
@@ -56,14 +56,14 @@ footer {
 .listings-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 5rem;
+    gap: 6rem;
 }
 
-.show-link{
+.show-link {
     text-decoration: none;
 }
 
-.card {
+.listing-card {
     border: none !important;
 }
 
@@ -86,4 +86,10 @@ footer {
 
 .card-body {
     padding: 0 !important;
+}
+
+.review-card {
+    background-color: #E7E7E7 !important;
+    border-radius: 0 !important;
+    border: none !important;
 }

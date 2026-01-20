@@ -8,3 +8,8 @@ module.exports.listingSchema = joi.object ({
     image: joi.string().allow("", null),
     price: joi.number().required().min(0),
 });
+
+module.exports.reviewSchema = joi.object({
+    comment: joi.string().required(),
+    rating: joi.number().required().min(1).max(5),
+});

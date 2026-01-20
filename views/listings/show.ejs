@@ -1,15 +1,63 @@
 <% layout("/layouts/boilerplate") %>
-<body>
-    <div>
-        <img src="<%= listing.image %>" class="img-thumbnail" style="width: 20rem;" alt="Location image">
-        <h3><%= listing.title %></h3>
-        <p><%= listing.description %></p>
-        <span>&#8377; <%= Number(listing.price || 0).toLocaleString("en-IN") %></span>
-        <p><%= listing.location %></p>
-        <p><%= listing.country %></p>
-        <a href="/listings/<%= listing._id %>/edit" class="btn btn-outline-info mb-2">Edit this listing</a>
-        <form action="/listings/<%= listing._id %>?_method=DELETE" method="post">
-            <button class="btn btn-danger">DELETE</button>
-        </form>
-    </div>
-</body>
+
+    <body>
+        <div>
+            <h3>
+                <%= listing.title %>
+            </h3>
+            <img src="<%= listing.image %>" class="img-thumbnail" style="width: 20rem;" alt="Location image">
+            <p>
+                <%= listing.description %>
+            </p>
+            <span>&#8377; <%= Number(listing.price || 0).toLocaleString("en-IN") %></span>
+            <p>
+                <%= listing.location %>
+            </p>
+            <p>
+                <%= listing.country %>
+            </p>
+            <a href="/listings/<%= listing._id %>/edit" class="btn btn-outline-info mb-2">Edit this listing</a>
+            <form action="/listings/<%= listing._id %>?_method=DELETE" method="post">
+                <button class="btn btn-danger">DELETE</button>
+            </form>
+            <hr>
+            <div class="review-div">
+                <form action="/listings/<%= listing.id %>/reviews" method="post" class="needs-validation" novalidate>
+                    <h2>Leave your Review</h2>
+                    <div class="review-rating">
+                        <label for="rating-range">Rating:</label>
+                        <input class="form-range" type="range" id="rating-range" name="rating" min="1" max="5">
+                    </div>
+                    <textarea class="p-2" name="comment" id="rev-comment" cols="150" rows="5"
+                        placeholder="Write your Exprience here..." required></textarea>
+                    <div class="invalid-feedback">
+                        please tell us abou your experience here!
+                    </div>
+                    <button class="btn btn-dark mt-4">Submit</button>
+                </form>
+                <hr>
+                <div>
+                    <p><b>All Reviews</b></p>
+                    <div class="row">
+                        <% for( review of listing.review ) { %>
+                            <div class="card review-card col-5 mb-3 me-5 p-2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">
+                                        <%=review.rating%> Stars
+                                    </h6>
+                                    <p class="card-text">
+                                        <%=review.comment%>
+                                    </p>
+                                    <form action="/listings/<%= listing.id %>/reviews/<%= review.id %>?_method=DELETE"
+                                        method="post">
+                                        <button class="btn btn-sm btn-dark">delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
