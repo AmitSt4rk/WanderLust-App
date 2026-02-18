@@ -57,6 +57,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req, res, next) => {
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
+    res.locals.currentUser = req.user;
     next();
 });
 
@@ -73,7 +74,7 @@ app.get('/demouser', async (req, res) => {
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
-app.use("/users", userRouter);
+app.use("/", userRouter);
 
 app.use((req, res, next) => {
     next(new ExpressError(404, "Page Not Found!"));
