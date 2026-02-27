@@ -14,3 +14,19 @@
     }, false)
   })
 })()
+
+let menuBar = document.querySelector(".navbar-bar");
+let menuCross = document.querySelector(".navbar-cross");
+let userNav = document.querySelector(".user-nav");
+
+menuBar.addEventListener("click", ()=> {
+  menuBar.style.display = "none";
+  userNav.style.display = "flex";
+  menuCross.style.display = "block";
+});
+
+menuCross.addEventListener("click", ()=>{
+  menuCross.style.display = "none";
+  userNav.style.display = "none";
+  menuBar.style.display = "block";
+});

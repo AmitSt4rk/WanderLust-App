@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const Review = require("./review.js");
+const { string } = require('joi');
 
 const listingSchema = new Schema({
     title: {
@@ -9,9 +10,12 @@ const listingSchema = new Schema({
     },
     description: String,
     image: {
-        type: String,
-        default: "https://www.vecteezy.com/photo/2411833-travel-and-holiday-concept",
-        set: (v) => v === "" ? "https://www.vecteezy.com/photo/2411833-travel-and-holiday-concept" : v
+        url: {
+            type: String
+        },
+        filename: {
+            type: String
+        }
     },
     price: Number,
     location: String,

@@ -1,12 +1,80 @@
 <% layout("/layouts/boilerplate") %>
 
+    <style>
+        .filter-container {
+            background-color: red;
+            height: 3rem;
+            margin: 20px 0px;
+            display: flex;
+            align-items: center;
+            overflow-x: auto;
+        }
+
+        .filter-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filters {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2em;
+        }
+
+        .filter {
+            text-align: center;
+            height: 2rem;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            padding: 4px;
+        }
+
+        .filter-container {
+            display: none;
+        }
+
+        @media (max-width: 840px) {
+            .filter-container {
+                display: flex;
+            }
+        }
+    </style>
+
     <body>
-        <h3>All Listings...</h3>
+        <div class="filter-container">
+            <div class="filters">
+                <div class="filter">
+                    <div><i class="fa-solid fa-fire"></i> Trending Stays</div>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-tree"></i> Coastal & Beach Stays</div>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-city"></i> Urban Stays</div>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-mountain-city"></i> Mountain & High-Altitude Stays</div>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-tractor"></i> Rural Stays</div>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-ship"></i> Boats</div>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-campground"></i> Nature Stay</div>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-snowflake"></i> Cold Places</div>
+                </div>
+            </div>
+        </div>
+
         <div class="listings-container">
             <% for (const listing of allListings) { %>
                 <a class="show-link" href="/listings/<%= listing._id %>">
                     <div class="card listing-card" style="width: 16rem;">
-                        <img src="<%= listing.image %>" class="card-img-top" alt="Listing Image!"
+                        <img src="<%= listing.image.url %>" class="card-img-top" alt="Listing Image!"
                             style="height: 16rem;">
                         <div class="card-img-overlay">
                             <h5 class="card-title">Card title</h5>

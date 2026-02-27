@@ -3,7 +3,7 @@
     <body>
         <div class="row">
             <div class="col-8 offset-2">
-                <form action="/listings/<%= listing._id %>?_method=PUT" method="post" class="needs-validation"
+                <form action="/listings/<%= listing._id %>?_method=PUT" method="post" class="needs-validation" enctype="multipart/form-data"
                     novalidate>
                     <div class="mb-2">
                         <label for="title" class="form-label">Title</label>
@@ -22,12 +22,8 @@
                         </div>
                     </div>
                     <div class="mb-2">
-                        <label for="img" class="form-label">Image URL</label>
-                        <input id="img" class="form-control" type="text" name="image" value="<%= listing.image %>"
-                            placeholder="Enter img URL.." required>
-                        <div class="invalid-feedback">
-                            Do some good modification Please.
-                        </div>
+                        <label for="img" class="form-label">upload new Image ( Optional )</label>
+                        <input id="img" class="form-control" type="file" name="image">
                     </div>
                     <div class="row">
                         <div class="mb-2 col-md-4">

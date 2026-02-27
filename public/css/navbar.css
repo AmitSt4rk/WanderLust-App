@@ -1,0 +1,117 @@
+.navbar {
+    background-color: white;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.container-fluid {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.fa-compass {
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.navbar-brand span {
+    text-decoration: solid;
+    font-weight: bold;
+    font-size: 2rem;
+    color: #222;
+}
+
+.nav-link {
+    color: #222 !important;
+    margin-right: 1rem;
+}
+
+/* Dropdown Styling -> */
+.btn-group button{
+    color: #222;
+    background-color: #f8404c;
+    border-color: #f8404c;
+}
+
+.dropdown-menu{
+    background-color: #f8404c;
+}
+
+/* Big Screen Navigation links -> */
+.user-nav-nav {
+    display: flex;
+}
+
+/* Slidebar buttons -> */
+.menu {
+    font-size: 1.6rem;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 2px 6px;
+}
+
+.navbar-bar {
+    position: relative;
+    display: none;
+    top: 0.2rem;
+    right: 0.2rem;
+}
+
+.navbar-bar:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.navbar-cross {
+    position: absolute;
+    display: none;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
+}
+
+.navbar-cross:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+
+/* Small Screen Navigation Links -> */
+.user-nav {
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100vh;
+    width: 300px;
+    padding: 10px;
+    display: none;
+}
+
+/* For responsiveness -> */
+@media (max-width: 840px) {
+    .btn-group {
+        display: none !important;
+    }
+}
+
+@media (max-width: 620px) {
+    .navbar-bar {
+        display: block;
+    }
+
+    .user-nav-nav {
+        display: none;
+    }
+
+    .nav-link {
+        margin-bottom: -10px;
+    }
+
+    .logout {
+        position: absolute;
+        bottom: 2vh;
+        left: 4vw;
+    }
+}
