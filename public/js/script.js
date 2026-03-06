@@ -19,14 +19,21 @@ let menuBar = document.querySelector(".navbar-bar");
 let menuCross = document.querySelector(".navbar-cross");
 let userNav = document.querySelector(".user-nav");
 
-menuBar.addEventListener("click", ()=> {
-  menuBar.style.display = "none";
-  userNav.style.display = "flex";
-  menuCross.style.display = "block";
+menuBar.addEventListener("click", () => {
+    userNav.classList.add("active");
+    menuBar.style.display = "none"
+    menuCross.style.display = "block";
 });
 
-menuCross.addEventListener("click", ()=>{
-  menuCross.style.display = "none";
-  userNav.style.display = "none";
-  menuBar.style.display = "block";
+menuCross.addEventListener("click", () => {
+    userNav.classList.remove("active");
+    menuBar.style.display = "block"
+    menuCross.style.display = "none";
+});
+
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 732) {
+        userNav.classList.remove("active");
+        menuCross.style.display = "none";
+    }
 });

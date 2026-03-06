@@ -1,0 +1,15 @@
+<div class="user">Amit Patel</div>
+
+<a class="nav-link host-btn" href="/listings/new">Host a Stay</a>
+
+<% if (!currentUser) { %>
+    <div class="user-authentication">
+        <b><a class="nav-link" href="/signup">Sign-Up</a></b>
+        <b><a class="nav-link" href="/login">Login <i
+                    class="fa-solid fa-arrow-right-to-bracket"></i></a></b>
+    </div>
+    <% } %>
+        <% if (currentUser) { %>
+            <b><a class="nav-link user-authentication" href="/logout">Logout <i
+                        class="fa-solid fa-right-from-bracket"></i></a></b>
+            <% } %>

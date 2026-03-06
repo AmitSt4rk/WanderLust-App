@@ -1,42 +1,20 @@
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i><span>WanderLust</span></a>
-        <div class="navbar-nav">
-            <div class="btn-group">
-                <button type="button" class="btn btn-secondary"><a class="dropdown-item" href="#"><i class="fa-solid fa-fire"></i> Trending Stays</a></button>
-                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-                    data-bs-toggle="dropdown" aria-expanded="false" data-bs-reference="parent">
-                </button>
-                <ul class="dropdown-menu">
-                    <li></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-mountain-city"></i> Mountain &
-                            High-Altitude Stays</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-city"></i> Urban Stays</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-tree"></i> Coastal & Beach Stays</a>
-                    </li>
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-tractor"></i> Rural Stays</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-ship"></i> Boats</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-campground"></i> Nature Stays</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-snowflake"></i> Cold Places</a></li>
-                </ul>
-            </div>
-        </div>
+            <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i><span>WanderLust</span></a>
+
+        <form class="d-flex" role="search" action="/listings" method="GET">
+            <input class="form-control me-2" type="search" name="search" placeholder="Search destination..."
+                aria-label="Search">
+            <button class="btn btn-outline-danger" type="submit">
+                Search
+            </button>
+        </form>
 
         <div class="navbar-nav-links">
             <div class="user-nav-nav">
-                <a class="nav-link" href="/listings/new">Host a Stay</a>
-                <% if (!currentUser) { %>
-                    <b><a class="nav-link" href="/signup">Sign-Up</a></b>
-                    <b><a class="nav-link" href="/login">Login <i class="fa-solid fa-arrow-right-to-bracket"></i></a></b>
-                    <% } %>
-                        <% if (currentUser) { %>
-                            <b><a class="nav-link logout" href="/logout">Logout <i class="fa-solid fa-right-from-bracket"></i></a></b>
-                            <% } %>
+                <%- include("./navlinks.ejs") %>
             </div>
-            
+
             <div class="menu navbar-bar">
                 <i class="fa-solid fa-bars"></i>
             </div>
@@ -45,14 +23,7 @@
             </div>
 
             <div class="user-nav">
-                <a class="nav-link" href="/listings/new">Host a Stay</a>
-                <% if (!currentUser) { %>
-                    <b><a class="nav-link" href="/signup">Sign-Up</a></b>
-                    <b><a class="nav-link" href="/login">Login <i class="fa-solid fa-arrow-right-to-bracket"></i></a></b>
-                    <% } %>
-                        <% if (currentUser) { %>
-                            <b><a class="nav-link logout" href="/logout">Logout <i class="fa-solid fa-right-from-bracket"></i></a></b>
-                            <% } %>
+                <%- include("./navlinks.ejs") %>
             </div>
         </div>
     </div>
