@@ -61,10 +61,6 @@ async function main() {
     await mongoose.connect(dbURL);
 }
 
-app.get('/', (req, res) => {
-    res.send("Server is working.");
-});
-
 app.use(session(sessionOptions));
 app.use(flash());
 
@@ -81,16 +77,9 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/demouser', async (req, res) => {
-    let fakeUser = new User({
-        email: "fakeemail@gmail.com",
-        username: "fakeUsername",
-    });
-
-    let registeredUser = await User.register(fakeUser, "fakepassword");
-    console.log(registeredUser);
-    res.send(registeredUser);
-})
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
