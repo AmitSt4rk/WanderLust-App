@@ -1,41 +1,58 @@
 <% layout("/layouts/boilerplate") %>
 
     <body>
-        <div class="listings-container">
-            <% if (allListings.length===0) { %>
-                <h4>No listings found.</h4>
-                <% } %>
-                    <% for (const listing of allListings) { %>
-                        <a class="show-link" href="/listings/<%= listing._id %>">
-                            <div class="card listing-card">
-                                <img src="<%= listing.image.url %>" class="card-img-top" alt="Listing Image!"
-                                    style="height: 16rem;">
-                                <div class="card-img-overlay"></div>
-                                <div class="card-body">
-                                    <b>
-                                        <h5 class="card-title">
-                                            <%= listing.title %>
-                                        </h5>
-                                    </b>
-                                    <p class="card-text">
-                                        <span>
-                                            &#8377; <%= Number(listing.price || 0).toLocaleString("en-IN") %> / night
-                                        </span>
-                                        <span class="avg-rating">
-                                            <% let ratingLength=listing.review.length; let totalRating=0; for(let review
-                                                of listing.review) { totalRating +=review.rating; } let
-                                                averageRating=ratingLength>0 ? (totalRating / ratingLength).toFixed(1):
-                                                0;
-                                                %>
+        <div class="all-listing-page">
+            <div class="filter-container-column">
+                Filters will be added here soon!
+            </div>
+            <div class="filter-container-row">
+                <div class="row-filters">
+                    <button class="filter-row-btn">F</button>
+                    <button class="filter-row-btn">I</button>
+                    <button class="filter-row-btn">L</button>
+                    <button class="filter-row-btn">T</button>
+                    <button class="filter-row-btn">E</button>
+                    <button class="filter-row-btn">R</button>
+                </div>
+            </div>
+            <div class="listings-container">
+                <% if (allListings.length===0) { %>
+                    <h4>No listings found.</h4>
+                    <% } %>
+                        <% for (const listing of allListings) { %>
+                            <a class="show-link" href="/listings/<%= listing._id %>">
+                                <div class="card listing-card">
+                                    <img src="<%= listing.image.url %>" class="card-img-top" alt="Listing Image!"
+                                        style="height: 10rem;">
+                                    <div class="card-img-overlay"></div>
+                                    <div class="card-body">
+                                        <b>
+                                            <h5 class="card-title">
+                                                <%= listing.title %>
+                                            </h5>
+                                        </b>
+                                        <p class="card-text">
+                                            <span>
+                                                &#8377; <%= Number(listing.price || 0).toLocaleString("en-IN") %> /
+                                                    night
+                                            </span>
+                                            <span class="avg-rating">
+                                                <% let ratingLength=listing.review.length; let totalRating=0; for(let
+                                                    review of listing.review) { totalRating +=review.rating; } let
+                                                    averageRating=ratingLength>0 ? (totalRating /
+                                                    ratingLength).toFixed(1):
+                                                    0;
+                                                    %>
 
-                                                <i class="fa-solid fa-star"></i>
-                                                <%= averageRating %>
-                                        </span>
-                                    </p>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <%= averageRating %>
+                                            </span>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
 
-                        <% } %>
+                            <% } %>
+            </div>
         </div>
     </body>

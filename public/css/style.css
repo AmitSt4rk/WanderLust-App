@@ -19,22 +19,62 @@ main{
     flex: 1;
 }
 
-footer {
-    background-color: aliceblue;
-    margin-top: 1rem;
-}
-
-.foot-container {
-    height: 8rem;
+.all-listing-page{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    justify-content: space-evenly;
 }
 
-.f-social i {
-    font-size: 1.2rem;
+.filter-container-column{
+    width: 80%;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-top: 1rem;
+}
+
+.filter-container-row{
+    height: 100%;
+    position: relative;
+    display: none;
+    flex-direction: column;
+}
+
+.row-filters{
+    width: 3rem;
+    height: 82vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+.filter-row-btn{
+    width: 2rem;
+    height: 2rem;
+    margin-top: 0.4rem;
+    background: transparent;
+}
+
+@media (max-width: 480px) {
+    .all-listing-page{
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .filter-container-column{
+        display: none;
+    }
+
+    .filter-container-row{
+        display: flex;
+    }
 }
 
 .listings-container {
@@ -56,10 +96,10 @@ footer {
 
 .listing-card {
     border: none !important;
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-right: 2rem;
-    height: 24rem !important;
-    width: 16rem !important;
+    height: 18rem !important;
+    max-width: 16rem !important;
 }
 
 .avg-rating i{
@@ -100,4 +140,22 @@ footer {
 
 .show-stay-details{
     margin: 0 4rem;
+}
+
+footer {
+    background-color: aliceblue;
+    margin-top: 1rem;
+}
+
+.foot-container {
+    height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.f-social i {
+    font-size: 1.2rem;
 }
