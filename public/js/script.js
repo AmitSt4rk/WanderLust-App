@@ -37,3 +37,10 @@ window.addEventListener("resize", () => {
         menuCross.style.display = "none";
     }
 });
+
+setTimeout(() => {
+    const alert = document.querySelector('.flash-alert');
+    if(alert){
+        alert.style.display = 'none';
+    }
+}, 8000);

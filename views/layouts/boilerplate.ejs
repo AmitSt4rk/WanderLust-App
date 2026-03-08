@@ -17,8 +17,10 @@
 
 <body>
     <div class="background-image"></div>
-    <%- include("../includes/flash.ejs") %>
     <%- include("../includes/navbar.ejs") %>
+    <div class="flash-container">
+        <%- include("../includes/flash.ejs") %>
+    </div>
             <main>
                 <%- body %>
             </main>

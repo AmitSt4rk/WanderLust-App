@@ -20,6 +20,17 @@ html, body {
     z-index: -100;
 }
 
+.flash-container{
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.flash-alert{
+    white-space: nowrap;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -96,7 +107,7 @@ main{
     padding: 1rem;
     margin-top: 1rem;
     justify-content: center;
-    flex-direction: flex-start;
+    flex-direction: row;
     background-color: white;
 }
 
