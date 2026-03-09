@@ -76,11 +76,12 @@
 /* Small Screen Navigation Links -> */
 .user-nav {
     flex-direction: column;
-    background-color: #f8404c;
+    background-color: rgb(255, 60, 80, 0.8);
+    backdrop-filter: blur(4px);
     position: fixed;
     top: 0px;
     right: 0px;
-    height: 100vh;
+    height: 100dvh;
     width: 300px;
     padding: 1rem;
     transform: translateX(100%);

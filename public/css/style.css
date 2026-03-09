@@ -45,7 +45,7 @@ main{
 }
 
 .all-listing-page{
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,6 +78,8 @@ main{
     justify-content: flex-start;
     align-items: center;
     padding-top: 2rem;
+    padding-left: -1rem;
+    margin-left: -2rem;
 }
 
 .filter-row-btn{
@@ -103,13 +105,14 @@ main{
 }
 
 .listings-container {
-    max-width: 90%;
-    min-width: 80%;
+    max-width: 98%;
+    min-width: 88%;
     display: flex;
     flex-wrap: wrap;
-    padding: 1rem;
-    margin-top: 1rem;
     justify-content: center;
+    padding: 1rem;
+    padding-left: 1rem;
+    margin-top: 1rem;
     flex-direction: row;
     background-color: white;
 }
@@ -125,8 +128,7 @@ main{
 
 .listing-card {
     border: none !important;
-    margin-top: 1rem;
-    margin-right: 2rem;
+    margin: 1rem;
     height: 18rem !important;
     max-width: 16rem !important;
 }
