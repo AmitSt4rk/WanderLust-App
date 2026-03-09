@@ -39,6 +39,9 @@ body {
 
 main{
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .all-listing-page{
@@ -166,6 +169,50 @@ main{
 
 .show-stay-details{
     margin: 0 4rem;
+}
+
+/* New Listing form */
+.new-listing-form-border{
+    width: 80%;
+    background: transparent;
+    padding: 1rem;
+    margin-top: 1rem;
+    border: 2px solid black;
+}
+
+.new-listing-form-container{
+    background-color: rgb(214, 214, 214, 0.8);
+    padding: 1rem;
+}
+
+/* User Authentication forms */
+
+.signup-form-container{
+    background-color: rgb(247, 245, 245, 0.6);
+    backdrop-filter: blur(4px);
+    padding: 1rem;
+    border-radius: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+.login-form-container{
+    background-color: rgb(247, 245, 245, 0.6);
+    backdrop-filter: blur(4px);
+    padding: 1rem;
+    border-radius: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+.login-form-container h1 span {
+    font-weight: bold;
+}
+
+.redirect{
+    margin-top: 1rem;
 }
 
 footer {
