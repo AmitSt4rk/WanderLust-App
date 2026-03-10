@@ -20,38 +20,32 @@
                     <h4>No listings found.</h4>
                     <% } %>
                         <% for (const listing of allListings) { %>
-                            <a class="show-link" href="/listings/<%= listing._id %>">
-                                <div class="card listing-card">
-                                    <img src="<%= listing.image.url %>" class="card-img-top" alt="Listing Image!"
-                                        style="height: 10rem;">
-                                    <div class="card-img-overlay"></div>
-                                    <div class="card-body">
-                                        <b>
-                                            <h5 class="card-title">
-                                                <%= listing.title %>
-                                            </h5>
-                                        </b>
-                                        <p class="card-text">
-                                            <span>
-                                                &#8377; <%= Number(listing.price || 0).toLocaleString("en-IN") %> /
-                                                    night
-                                            </span>
-                                            <span class="avg-rating">
-                                                <% let ratingLength=listing.review.length; let totalRating=0; for(let
-                                                    review of listing.review) { totalRating +=review.rating; } let
-                                                    averageRating=ratingLength>0 ? (totalRating /
-                                                    ratingLength).toFixed(1):
-                                                    0;
-                                                    %>
+                            <div class="card listing-card">
+                                <img src="<%= listing.image.url %>" class="card-img card-img-top" alt="Listing Image!">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <span>
+                                            &#8377; <%= Number(listing.price || 0).toLocaleString("en-IN") %> /
+                                                night
+                                        </span>
+                                        <span class="avg-rating">
+                                            <% let ratingLength=listing.review.length; let totalRating=0; for(let review
+                                                of listing.review) { totalRating +=review.rating; } let
+                                                averageRating=ratingLength>0 ? (totalRating /
+                                                ratingLength).toFixed(1):
+                                                0;
+                                                %>
 
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <%= averageRating %>
-                                            </span>
-                                        </p>
-                                    </div>
+                                                <i class="fa-solid fa-star"></i>
+                                                <%= averageRating %>
+                                        </span>
+                                    </p>
+                                    <h5 class="card-title">
+                                        <%= listing.title %>
+                                    </h5>
+                                    <a class="show-link" href="/listings/<%= listing._id %>">See more...</a>
                                 </div>
-                            </a>
-
+                            </div>
                             <% } %>
             </div>
         </div>
