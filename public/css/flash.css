@@ -1,0 +1,10 @@
+.flash-container {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.flash-alert {
+    white-space: nowrap;
+}

@@ -7,7 +7,7 @@ module.exports.index = async (req, res) => {
 
     if (search) {
         allListings = await Listing.find({
-            $text: { $search: search }
+            title: {$regex: search, $options: "i"}
         }).populate("review");
     } else {
         allListings = await Listing.find({}).populate("review");

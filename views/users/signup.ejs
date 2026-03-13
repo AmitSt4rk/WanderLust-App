@@ -1,36 +1,39 @@
 <% layout("/layouts/boilerplate") %>
 
     <body>
-        <div class="signup-form-container">
-            <h1>Sign-Up on WanderLust</h1>
-            <form action="/signup" method="post" class="needs-validation" novalidate>
-                <div class="mb-2">
-                    <label for="username" class="form-label">Username:</label>
-                    <input id="username" class="form-control" type="text" name="username" placeholder="Enter Username.."
-                        required>
-                    <div class="invalid-feedback">
-                        require Username.
+        <div class="login-signup-container">
+            <div class="signup-login-form-container">
+                <h1>Sign-Up on WanderLust</h1>
+                <form action="/signup" method="post" class="needs-validation" novalidate>
+                    <div class="mb-2">
+                        <label for="username" class="form-label">Username:</label>
+                        <input id="username" class="form-control" type="text" name="username"
+                            placeholder="Enter Username.." required>
+                        <div class="invalid-feedback">
+                            require Username.
+                        </div>
                     </div>
-                </div>
-                <div class="mb-2">
-                    <label for="email" class="form-label">Email:</label>
-                    <input id="email" class="form-control" type="email" name="email" placeholder="Enter Email.."
-                        required>
-                    <div class="invalid-feedback">
-                        Please enter Email here.
+                    <div class="mb-2">
+                        <label for="email" class="form-label">Email:</label>
+                        <input id="email" class="form-control" type="email" name="email" placeholder="Enter Email.."
+                            required>
+                        <div class="invalid-feedback">
+                            Please enter Email here.
+                        </div>
                     </div>
-                </div>
-                <div class="mb-2">
-                    <label for="password" class="form-label">Password:</label>
-                    <input id="password" class="form-control" type="password" name="password"
-                        placeholder="Enter Password.." required>
-                    <div class="invalid-feedback">
-                        need password.
+                    <div class="mb-2">
+                        <label for="password" class="form-label">Password:</label>
+                        <input id="password" class="form-control" type="password" name="password"
+                            placeholder="Enter Password.." required>
+                        <div class="invalid-feedback">
+                            need password.
+                        </div>
                     </div>
+                    <button class="btn btn-success">Sign-Up</button>
+                </form>
+                <div class="login-redirect redirect">Already have account? <a href="/Login">Click here</a> to Login.
                 </div>
-                <button class="btn btn-success">Sign-Up</button>
-            </form>
-            <div class="login-redirect redirect">Already have account? <a href="/Login">Click here</a> to Login.</div>
+            </div>
         </div>
         <script src="/js/script.js"></script>
     </body>
