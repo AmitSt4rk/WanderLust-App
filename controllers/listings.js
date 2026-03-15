@@ -1,17 +1,29 @@
+const { options } = require('joi');
 const Listing = require('../models/listing.js');
 
 module.exports.index = async (req, res) => {
-    let { search } = req.query;
+    let { search, minPrice, maxPrice } = req.query;
 
-    let allListings;
+    let query = {};
 
     if (search) {
-        allListings = await Listing.find({
-            title: {$regex: search, $options: "i"}
-        }).populate("review");
-    } else {
-        allListings = await Listing.find({}).populate("review");
+        query.$text = { $search: search }
+    };
+    if (minPrice && !isNaN(minPrice)) {
+        query.price = {...query.price, $gte: Number(minPrice)}
+    };
+    if (maxPrice && !isNaN(maxPrice)) {
+        query.price = {...query.price, $lte: Number(maxPrice)}
+    };
+
+    let listingQuery;
+    if (search) {
+        listingQuery = Listing.find(query, { score: { $meta: "textScore" } }).sort({ score: { $meta: "textScore" } }).populate("review");
+    }else{
+        listingQuery = Listing.find(query).populate("review");
     }
+
+    let allListings = await listingQuery;
     res.render('listings/index.ejs', { allListings });
 };
 
@@ -56,7 +68,7 @@ module.exports.updateListing = async (req, res) => {
     if (typeof req.file !== "undefined") {
         let url = req.file.path;
         let filename = req.file.filename;
-        listing.image = { url, filename};
+        listing.image = { url, filename };
         await listing.save();
     }
     req.flash("success", "Listing Updated!");
